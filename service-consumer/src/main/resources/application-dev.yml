@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    hikari:
+      jdbc-url: jdbc:mysql://192.168.20.224:3308/springcloudnetflix?useUnicode=true&useSSL=false&autoReconnect=true&zeroDateTimeBehavior=convertToNull
+      username: featx
+      password: featxtest-181024
+  redis:
+    database: 0
+    host:
+    password: ""
+    port: 6379
+    timeout: 500
+  zipkin.base-url: http://zipkin:9411
+eureka.client.serviceUrl.defaultZone: http://discovery:8710/eureka/
+logging:
+  config: classpath:logback-spring.xml
+  level.org.featx.community.mapper.mysql: debug

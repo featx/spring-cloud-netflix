@@ -1,0 +1,67 @@
+info:
+  name: Spring-Cloud-Provider
+
+server:
+  port: 8001
+  compression.enabled: true
+spring:
+  application:
+    name: service-provider
+  datasource:
+    hikari:
+      connection-init-sql: SET NAMES utf8mb4
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://mysql:3306/spring_cloud_netflix?useUnicode=true&useSSL=false&autoReconnect=true&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: root
+  redis.lettuce.pool:
+    max-idle: 8
+    min-idle: 0
+rocketmq:
+  name-server: namesrv:9876
+  producer:
+    group: service
+
+logging:
+  config: classpath:logback-spring.xml
+  level.org.featx.community.mapper.mysql: debug
+  level.org.featx.community.Application: info
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+management:
+  endpoint:
+    health:
+      show-details: always
+
+eureka:
+  client:
+    enabled: true
+    healthcheck:
+      enabled: true
+    serviceUrl.defaultZone: http://discovery:8710/eureka/
+  instance:
+    lease-expiration-duration-in-seconds: 10
+    lease-renewal-interval-in-seconds: 5
+    prefer-ip-address: true
+feign:
+  hystrix.enabled: true
+  httpclient.enabled: false
+  okhttp.enabled: false
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+ribbon:
+  ConnectTimeout: 5000
+  MaxAutoRetries: 1
+  MaxAutoRetriesNextServer: 1
+  OkToRetryOnAllOperations: true
+  ReadTimeout: 10000
+debug:
+  isApns: false

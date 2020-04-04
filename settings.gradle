@@ -1,0 +1,4 @@
+rootProject.name = 'spring-cloud-netflix'
+include 'service-definition'
+include 'service-provider'
+include 'service-consumer'

@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    hikari:
+      jdbc-url: jdbc:mysql://192.168.20.224:3308/spring_cloud_netflix?useUnicode=true&useSSL=false&autoReconnect=true&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: root
+  redis:
+    database: 0
+    host: 192.168.20.224
+    password: ""
+    port: 6379
+    timeout: 500
+  zipkin.base-url: http://localhost:9411
+eureka.client.serviceUrl.defaultZone: http://discovery:8710/eureka/
+logging:
+  config: classpath:logback-spring.xml
+  level.org.featx.community.mapper.mysql: debug

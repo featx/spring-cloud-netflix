@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+allprojects {
+
+    group = 'org.featx.templet.persist.service'
+    version = '1.0.0-SNAPSHOT'
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    repositories {
+        mavenCentral()
+        maven { url 'https://repo.spring.io/milestone' }
+//        maven { url "https://artifacts.elastic.co/maven" }
+        maven {
+            url 'https://repo.rdc.aliyun.com/repository/67417-release-5dYQ7a/'
+            credentials {
+                username "${MVN_USERNAME}"
+                password "${MVN_PASSWORD}"
+            }
+        }
+        maven {
+            url 'https://repo.rdc.aliyun.com/repository/67417-snapshot-6tKIEl/'
+            credentials {
+                username "${MVN_USERNAME}"
+                password "${MVN_PASSWORD}"
+            }
+        }
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}

@@ -1,0 +1,17 @@
+.gradle/
+.idea/
+build
+out
+target
+
+*.class
+*.iml
+*.sublime
+*.atom
+*.vscode
+
+#settings.gradle
+#gradle
+#gradlew
+#gradlew.bat
+#gradle.properties
